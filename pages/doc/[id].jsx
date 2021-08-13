@@ -51,7 +51,7 @@ function Doc() {
         >
           <Icon name="people" size="md" /> SHARE
         </Button>
-        <img className="rounded-full cursor-pointer h-10 w-10 ml-2" src={session?.user?.image} alt="" />
+        <img className="rounded-full cursor-pointer h-10 w-10 ml-2" src={session.user.image} alt="" />
       </header>
       <TextEditor />
     </div>
@@ -62,7 +62,8 @@ export default Doc;
 
 //! it fetches the user before hand, from the server baby
 export async function getServerSideProps(context) {
-  const session = getSession(context);
+  //we had an error of couldn't serialize the mofo, and that's because we didn't await for the actual response
+  const session = await getSession(context);
   return {
     props: {
       session,
