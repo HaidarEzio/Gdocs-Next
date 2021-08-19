@@ -10,6 +10,7 @@ const firebaseConfig = {
   measurementId: "G-DSB6FS0ZDR",
 };
 
+//*for the app to only run once, and not a single time again
 const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 const db = app.firestore();
